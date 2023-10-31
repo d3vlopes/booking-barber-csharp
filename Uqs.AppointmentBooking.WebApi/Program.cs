@@ -1,4 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using Uqs.AppointmentBooking.Domain.Database;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<ApplicationContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AppointmentBooking")));
 
 // Add services to the container.
 
